@@ -14,7 +14,7 @@ function Admin() {
   async function addQuestion() {
     const token = localStorage.getItem('token');
 
-    const response = await fetch('http://localhost:5000/questions', {
+    const response = await fetch('https://cse-reviewer-backend.onrender.com/questions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

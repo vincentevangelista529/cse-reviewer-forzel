@@ -15,7 +15,7 @@ function Quiz() {
     const count = params.get('count') || 10;
     const difficulty = params.get('difficulty') || 'all';
 
-    fetch(`http://localhost:5000/quiz?category=${category}&count=${count}&difficulty=${difficulty}`)
+    fetch(`https://cse-reviewer-backend.onrender.com/quiz?category=${category}&count=${count}&difficulty=${difficulty}`)
       .then(res => res.json())
       .then(data => setQuestions(data));
   }, []);
