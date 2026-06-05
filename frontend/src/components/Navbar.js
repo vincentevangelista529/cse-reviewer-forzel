@@ -1,10 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   const token = localStorage.getItem('token');
   const username = localStorage.getItem('username');
   const role = localStorage.getItem('role');
-  const navigate = useNavigate();
 
   function handleLogout() {
     localStorage.removeItem('token');
