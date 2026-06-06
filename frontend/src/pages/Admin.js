@@ -5,21 +5,21 @@ const API = 'https://cse-reviewer-backend.onrender.com';
 function parseQuestions(text) {
   const questions = [];
   // Split by question numbers like "1." "2." etc
-  const blocks = text.split(/\n(?=\d+[\.\)]\s)/);
+  const blocks = text.split(/\n(?=\d+[.)]\s)/);
 
   for (const block of blocks) {
     const lines = block.trim().split('\n').map(l => l.trim()).filter(Boolean);
     if (lines.length < 2) continue;
 
     // First line is the question (remove leading number)
-    const questionLine = lines[0].replace(/^\d+[\.\)]\s*/, '').trim();
+    const questionLine = lines[0].replace(/^\d+[.)]\s*/, '').trim();
     if (!questionLine) continue;
 
     const choices = [];
     for (let i = 1; i < lines.length; i++) {
       const line = lines[i];
       // Match lines starting with A. B. C. D. or A) B) C) D)
-      const match = line.match(/^([A-Da-d][\.\)]\s*)(.+)/);
+      const match = line.match(/^([A-Da-d][.)]\s*)(.+)/);
       if (match) {
         choices.push({ text: match[2].trim(), isCorrect: false });
       }
